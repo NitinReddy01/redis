@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"net"
+	"strings"
 
 	"github.com/NitinReddy01/redis/config"
 	"github.com/NitinReddy01/redis/core"
@@ -55,7 +56,7 @@ func readCommand(conn io.ReadWriter) (*core.RedisCommand, error) {
 	}
 
 	return &core.RedisCommand{
-		Cmd:  tokens[0],
+		Cmd:  strings.ToUpper(tokens[0]),
 		Args: tokens[1:],
 	}, nil
 }

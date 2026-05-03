@@ -1,6 +1,10 @@
 package main
 
+import "log"
+
 func main() {
 	// RunSyncTCPServer()
-	RunAsyncTCPServer()
+	if err := RunAsyncTCPServer(); err != nil {
+		log.Fatal(err)
+	}
 }
